@@ -1,1 +1,1 @@
-# JavaScript
+# JavaScript ![JavaScript](.javascript.png)
