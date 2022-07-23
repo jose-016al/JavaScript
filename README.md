@@ -5,7 +5,11 @@
 - [Variables](#variables)
   - [Conversiones](#conversiones)
   - [Objetos](#objetos)
+  - [Arrays](#arrays)
+  - [Operadores](#operadores)
 - [Metodos](#metodos)
+- [Comentarios](#comentarios)
+- [Cuadros de dialogo](#cuadros-de-dialogo)
 
 # Pasos previos
 Enlazar un fichero javascript, necesitamos un fichero html para enlazarlo 
@@ -97,6 +101,13 @@ let name = names.shift();
 console.log(names.length); // -> 3
 ```
 
+## Operadores
+El operador condicional ternario "?", (es un condicional)
+```javascript
+let edad;
+let resultado = (edad >= 18) ? "si" : "no";
+```
+
 # Metodos
 Un metodo es un tipo especial de funcion que pertenece a un objeto
 ```javascript
@@ -123,4 +134,24 @@ Comentarios de varias lineas
     de varias
     lineas
 */
+```
+
+# Cuadros de dialogo
+Su uso no es muy recomendado, pero tenemos varias formas de generar un cuadro de dialogo  
+las alertas para mostrar un mmensaje al cargar la pagina
+```javascript
+alert("Hola mundo");
+```
+Las confirmaciones nos saldran dos botones para aceptar o cancelar
+```javascript
+let borrar = confirm("¿Borrar todos los datos?");
+let mensaje = borrar ? "Borrando datos" : "Cancelado";
+```
+Los prompt son como las confirmaciones pero con el cuadro de texto donde el usuario introduce un mensaje
+```javascript
+let nombre = prompt("¿Como te llamas?", "nombre");
+nombre = nombre ? nombre : "anonimo";
+
+let edad = prompt("Hola " + nombre + " ¿cuantos años tienes?");
+alert(nombre + " tiene " + edad + " años");
 ```
