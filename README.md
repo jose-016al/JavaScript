@@ -7,9 +7,15 @@
   - [Objetos](#objetos)
   - [Arrays](#arrays)
   - [Operadores](#operadores)
-- [Metodos](#metodos)
 - [Comentarios](#comentarios)
 - [Cuadros de dialogo](#cuadros-de-dialogo)
+- [Condicionales](#condicionales)
+- [Los bucles](#los-bucles)
+  - [Los bucles while](#los-bucles-while)
+  - [Los bucles do while](#los-bucles-do-while)
+  - [Los bucles for](#los-bucles-for)
+- [Funciones](#funciones)
+  - [Metodos](#metodos)
 
 # Pasos previos
 Enlazar un fichero javascript, necesitamos un fichero html para enlazarlo 
@@ -108,19 +114,6 @@ let edad;
 let resultado = (edad >= 18) ? "si" : "no";
 ```
 
-# Metodos
-Un metodo es un tipo especial de funcion que pertenece a un objeto
-```javascript
-console.time();
-console.log("test console");
-console.timeEnd();
-```
-```javascript
-let river = "Mekong";
-let character = river.charAt(2);
-console.log(character); // -> k
-```
-
 # Comentarios
 Comentarios de una sola linea 
 ```javascript
@@ -154,4 +147,125 @@ nombre = nombre ? nombre : "anonimo";
 
 let edad = prompt("Hola " + nombre + " ¿cuantos años tienes?");
 alert(nombre + " tiene " + edad + " años");
+```
+
+# Condicionales
+La condicion if
+```javascript
+let isUserReady = confirm("Are you ready?");
+console.log(isUserReady);
+if (isUserReady) {
+    alert("User ready!");
+}
+```
+La condicion if else
+```javascript
+if (isUserReady) {
+    console.log("User ready!");
+} else {
+    console.log("User not ready!");
+}
+```
+Condicionales encadenados
+```javascript
+if (conditions_1) {
+  code
+} else if (condition_2) {
+  code
+} else if (condition_3) {
+  code
+} else {
+  code
+}
+```
+El operador condicional ternario "?", (es un condicional)
+```javascript
+let edad;
+let resultado = (edad >= 18) ? "si" : "no";
+```
+Los switch
+```javascript
+switch (expression) {
+    case first_match:
+        code
+        break;
+    case second_match:
+        code
+        break;
+    default:  
+        code
+}
+```
+
+# los bucles
+Son bloques de codigo que se repiten segun un numero de veces que le indiquemos
+## Los bucles while
+La condicion a cumplir se comprueba al principio, por lo que puede no entrar en ningun momento al bucle
+```javascript
+let isOver = false;
+let counter = 1;
+
+while (!isOver) {
+    isOver = !confirm('[${counter++}] Continue the loop?');
+}
+```
+## Los bucles do while
+En cambio los do while se comprueba la condicion al final, por lo tanto sabemos que al menos una vez si entrara en el bucle
+```javascript
+let isOver;
+let counter = 1;
+
+do {
+    isOver = !confirm('[${counter++}] Continue the loop?');
+} while (!isOver);
+```
+## Los bucles for
+Lo mejor a la hora de recorrer un array facilmente
+```javascript
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+}
+```
+
+# Funciones
+```javascript
+let temperatures;
+let sum;
+let meanTemp;
+
+function getMeanTemp() {
+    sum = 0;
+    for (let i = 0; i < temperatures.length; i++) {
+        sum += temperatures[i];
+    }
+    meanTemp = sum / temperatures.length;    
+}
+```
+La declaracion return nos devuelve un objeto en una funcion
+```javascript
+function showMsg() {
+    console.log("message 1");
+    return;
+    console.log("message 2");
+}
+
+showMsg(); // -> message 1
+```
+Podemos añadir parametros a la funciones
+```javascript
+function add(first, second) {
+  return first + second;
+}
+```
+## Metodos
+Un metodo es un tipo especial de funcion que pertenece a un objeto
+```javascript
+console.time();
+console.log("test console");
+console.timeEnd();
+```
+```javascript
+let river = "Mekong";
+let character = river.charAt(2);
+console.log(character); // -> k
 ```
