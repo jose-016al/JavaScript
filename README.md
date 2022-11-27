@@ -4,7 +4,6 @@
 - [Pasos previos](#pasos-previos)
 - [Variables](#variables)
   - [Conversiones](#conversiones)
-  - [Objetos](#objetos)
   - [Arrays](#arrays)
   - [Operadores](#operadores)
 - [Comentarios](#comentarios)
@@ -14,8 +13,16 @@
   - [Los bucles while](#los-bucles-while)
   - [Los bucles do while](#los-bucles-do-while)
   - [Los bucles for](#los-bucles-for)
+- [Extructuras](#las-estructuras)
+
+
+
 - [Funciones](#funciones)
-  - [Metodos](#metodos)
+  - [Funciones anonimas](#las-funciones-anonimas)
+  - [Funciones flecha](#las-funciones-flecha)
+  - [Funciones callback](#las-funciones-callback)
+  - [Funciones de tiempo (setTimeout y setInterval)](#funciones-de-tiempo)
+- [La POO](#la-programacion-orientada-a-objetos-poo)
 
 # Pasos previos
 Enlazar un fichero javascript, necesitamos un fichero html para enlazarlo 
@@ -56,24 +63,6 @@ let numero = 37;
 console.log(numero);
 let string_numero = String(numero);
 console.log(string_numero);
-```
-
-## Objetos
-```javascript 
-let testObj = {
-    nr: 600,
-    str: "text"
-};
-console.log(testObj.nr); // -> 600
-console.log(testObj.str); // -> text
-```
-Podemos añadir campos a un objeto
-```javascript
-user1.age = 22;
-```
-Podemos eliminar campos de un objeto 
-```javascript
-delete user1.age;
 ```
 
 ## Arrays
@@ -227,7 +216,43 @@ for (let i = 0; i < 10; i++) {
 }
 ```
 
+# Las estructuras 
+## Los arrays
+Un array se puede crear vacio e ir metiendo datos o con datos ya creados
+```javascript
+const cars = ["Mercedes", "BMW", "Audi"];
+```
+El acceso a sus elementos es como en otros lengaujes de programacion
+```javascript
+cars[0];
+```
+Para añadir un elemento al array usamos push
+```javascript
+cars.push("Citroen");
+```
+Algunos metodos sobre los arrays se muestran en la siguiente imagen
+![Arrays](Documentacion/metodos%20de%20un%20array.png)
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+
 # Funciones
+
 ```javascript
 let temperatures;
 let sum;
@@ -257,15 +282,144 @@ function add(first, second) {
   return first + second;
 }
 ```
-## Metodos
-Un metodo es un tipo especial de funcion que pertenece a un objeto
+
+## Las funciones anonimas 
+
 ```javascript
-console.time();
-console.log("test console");
-console.timeEnd();
+const square = function(number) {
+  return number * number;
+};
+var x = square(4) // -> x obtiene el valor de 16
+```
+
+## Las funciones flecha 
+
+```javascript
+par = (numero) =>  (numero % 2 == 0);
+
+document.write(par(numero)); // -> devuelve true si un numero es par
+```
+
+## Las funciones callback
+
+Es una funcion que se pasa a otra funcion como argumento
+```javascript
+funtion saludar(nombre) {
+  alert('Hola'+nombre);
+}
+funtion procesarEntradaUsuario(callback) {
+  var nombre = prompt('Introduce tu nombre');
+  callback(nombre);
+}
+procesarEntradaUsuario(saludar);
+```
+
+## Funciones de tiempo
+
+La funcion setTimeout espera un tiempo para ejecutar algo
+```javascript
+setTimeOut(function() {
+  console.log("He ejecutado la funcion");
+}, 2000); // -> llamara a la funcion callback cunado pasen dos segundos
+```
+La funcion setInterval llama a una funcion o ejecuta un fragmento de codigo de forma reiterada, con un retardo de tiempo
+```javascript
+setInterval(miTemporizador, 1000);
+function miTemporizador() {
+  const fecha = new Date();
+  console.log(fecha.toLocaleTimeString());
+}
+```
+Podemos usar clearInterval para detener la ejecucion 
+```javascript
+const myInterval = setInterval(miTemporizador, 1000);
+function miTemporizador() {
+  const fecha = new Date();
+  console.log(fecha.toLocaleTimeString());
+}
+function myStop() {
+  clearInterval(myInterval);
+}
+```
+
+# La programacion orientada a objetos POO
+Los objetos se crean de la siguiente manera
+```javascript
+const persona = {
+  nombre: "Jose",
+  edad: 23
+};
+console.log(persona.nombre);
+```
+Metodos en los objetos 
+```javascript
+const persona = {
+  nombre: "Jose",
+  apellido: "Almiron",
+  edad: 23,
+  nombrar: function() {
+    return this.nombre + " " + this.apellido;
+  }
+};
+console.log(persona.nombrar()); // -> Jose Almiron
+```
+Para obtener las propiedades de un objeto usando un for in
+```javascript
+for (let i in persona) {
+  if (typeof persona[i] != "function") {
+    console.log(`${i} tiene el valor de ${persona[i]}`);
+  }
+}
+```
+Para eliminar propiedades de un objeto pdemos usar el delete
+```javascript
+delete persona.nombre;
 ```
 ```javascript
-let river = "Mekong";
-let character = river.charAt(2);
-console.log(character); // -> k
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
+```
+```javascript
+
 ```
