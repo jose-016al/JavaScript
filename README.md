@@ -4,7 +4,6 @@
 - [Pasos previos](#pasos-previos)
 - [Variables](#variables)
   - [Conversiones](#conversiones)
-  - [Arrays](#arrays)
   - [Operadores](#operadores)
 - [Comentarios](#comentarios)
 - [Cuadros de dialogo](#cuadros-de-dialogo)
@@ -14,9 +13,9 @@
   - [Los bucles do while](#los-bucles-do-while)
   - [Los bucles for](#los-bucles-for)
 - [Extructuras](#las-estructuras)
-
-
-
+  - [Arrays](#arrays)
+  - [SET](#set-conjuntos)
+  - [MAP](#map-mapas)
 - [Funciones](#funciones)
   - [Funciones anonimas](#las-funciones-anonimas)
   - [Funciones flecha](#las-funciones-flecha)
@@ -222,6 +221,13 @@ Un array se puede crear vacio e ir metiendo datos o con datos ya creados
 ```javascript
 const cars = ["Mercedes", "BMW", "Audi"];
 ```
+Podemos generar un array, a partir de un String con el metodo split()
+```javascript
+var array = [];
+let cadena = "1, 3, 5, 7, 10";
+array = cadena.split(','); // generamos el array cogiendo los valores hasta la ","
+console.log(array); // -> (5) ['1', ' 3', ' 5', ' 7', ' 10']
+```
 El acceso a sus elementos es como en otros lengaujes de programacion
 ```javascript
 cars[0];
@@ -232,24 +238,140 @@ cars.push("Citroen");
 ```
 Algunos metodos sobre los arrays se muestran en la siguiente imagen
 ![Arrays](Documentacion/metodos%20de%20un%20array.png)
+indexOf busca un elemento del array devolviendo su posicion en que aparece por primera vez y -1 si no lo encuentra 
 ```javascript
+let posicion = cars.indexOf("Mercedes");
+```
+lastIndexOf busca un elemento devolviendo la posicion en la que aparece por ultima vez 
+```javascript
+let posicion = cars.lastIndexOf("Mercedes");
+```
+find() devuelve el valor que busquemos 
+```javascript
+const numbers = [4, 9, 16, 25, 29];
+let first = numberd.find(myFunction); // -> devuelve 25
+function myFunction(value, index, array) {
+  return value > 18;
+}
+```
 
+## SET (conjuntos)
+De forma similar a los arrays, permiten guardar datos, al igual que los arrays son objetos, su principal virtud es que nos admiten vaores duplicados 
+```javascript
+const conjunto = new Set(); // -> declaracion e inicializacion de un conjunto vacio
+```
+Para añadir elementos al conjunto usamos add()
+```javascript
+conjunto.add(8);
+conjunto.add(6);
+conjunto.add(5);
+conjunto.add(5);
+conjunto.add(6);
+
+console.log(conjunto); // -> Set(3) {8, 6, 5} -> como podemos ver se eliminan los resultados duplicados
+```
+Para ver el tamaño de un conjunto
+```javascript
+conjunto.size; // -> 3
+```
+Eliminar valores de un conjunto
+```javascript
+conjunto.delete(6);
+console.log(conjunto); // -> Set(2) {8, 5}
+```
+Vaciar todo el conjunto
+```javascript
+conjunto.clear(); // -> Set {}
+```
+Buscar si un valor se encunetra ya en el cnnjunto, devuelve true en caso afirmativo
+```javascript
+conjunto.has(8); // -> true
+```
+Podemos convertir un conjunto en un array, ya que el SET nos permite eliminar los duplicados de una fomra mas sencilla que un array
+```javascript
+const conjunto = new Set( [1, 3, 5, 7] );
+const myarray = [...conjunto]; // con "..." convertimos en array el SET
+console.log(myarray); // -> (4) [1, 3, 5, 7]
+```
+En los conjuntos no existe el concepto de posicion de elemento
+```javascript
+for (let item of conjunto) console.log(item);
+```
+
+## MAP (MAPAS)
+Permiten almacenar datos de tipo clave.valor, no permiten claves repetidas
+```javascript
+const provincias = new Map(); // -> declaracion e inicializacion de un mapa vacio
+```
+Para añadir valores a un mapa podemos hacerlo en la inicializacion con un array
+```javascript
+const fruits = new Map( [
+  ["apples", 500],
+  ["bananas", 300],
+  ["oranges", 200],
+] );
+console.log(fruits); // -> Map(3) {'apples' => 500, 'bananas' => 300, 'oranges' => 200}
+```
+Tambien podemos usar el metodo set(clave, valor) para añadir un elemento
+```javascript
+const fruits = new Map();
+fruits.set("apples", 500);
+fruits.set("bananas", 300);
+fruits.set("oranges", 200);
+console.log(fruits); // -> Map(3) {'apples' => 500, 'bananas' => 300, 'oranges' => 200}
+```
+Ver el tamaño de un mapa
+```javascript
+fruits.size; // -> 3
+```
+Obtener valores de una clave
+```javascript
+console.log(fruits.get("apples")); // -> devuelve 500
+```
+Para buscar una clave usamos el metodo has(), devuelve true si la encuentra, como en el caso de los SET
+```javascript
+console.log(fruits.has("apples")); // -> true
+```
+Para eliminar un elemento usamos su clave
+```javascript
+fruits.delete("apples");
+```
+Podemos recorrer los mapas con un for of  
+  fruits.keys() -> para obtener las claves    
+  fruits.values() -> para obtener los valores  
+  fruits.entries() -> para obtener clave-valor
+```javascript
+let texto = "";
+for (const fruta of fruits.keys()) {
+  texto += " " + fruta;
+}
+console.log(texto); // -> apples bananas oranges
 ```
 ```javascript
-
+let texto = "";
+for (const cant of fruits.values()) {
+  texto += " " + cant;
+}
+console.log(texto); // -> 500 300 200
 ```
 ```javascript
-
+let texto = "";
+for (const par of fruits.entries()) {
+  texto += par + "<br>";
+}
+console.log(texto); // apples,500
+                    // bananas,300
+                    // oranges,200
 ```
+Podemos desestructurar el array interior para separar en dos variables clave y valor
 ```javascript
-
+for (let [fruta, cantidad] of fruits) {
+  console.log(`Clave: ${fruta}, Valor: ${cantidad}`); // -> Clave: apples, Valor: 500
+                                                         // Clave: bananas, Valor: 300
+                                                         // Clave: oranges, Valor: 200
+}
 ```
-```javascript
 
-```
-```javascript
-
-```
 
 # Funciones
 
@@ -374,52 +496,4 @@ for (let i in persona) {
 Para eliminar propiedades de un objeto pdemos usar el delete
 ```javascript
 delete persona.nombre;
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
-```
-```javascript
-
 ```

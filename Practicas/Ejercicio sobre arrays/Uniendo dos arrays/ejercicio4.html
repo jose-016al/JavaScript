@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <script src="ejercicio4.js"></script>
+</head>
+<body> 
+    <h1>Ejercicio: Concatenar 2 arrays de diferentes longitudes</h1>
+    <form action="" name="formularios">
+        <label>Introduce los primeros numeros separados por coma</label><br><br>
+            <input type="text" name="valores1" onchange="generarPrimerArray()">
+            <select name="select1" id="select1">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button type="button" onclick="aleatorio1()">Aleatorio1</button><br><br>
+
+        <label>Introduce los segundos numeros separados por comas o pulsa para generarlo aleatorimanete</label><br><br>
+            <input type="text" name="valores2" onchange="generarSegundoArray()">
+            <select name="select2" id="select2">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        <button type="button" onclick="aleatorio2()">Aleatorio2</button><br><br>
+
+        <button type="button" onclick="concatenar()">Concatenar</button>
+        <button type="button" onclick="reinicar()">Reiniciar</button>
+    </form>
+    <div id="resultado"></div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen RA3 Noviembre 2022</title>
+    <script src="ejercicio1.js"></script>
+    <style>
+        .container{width:400px; background-color: antiquewhite; padding:20px;}       
+        label{display:inline-block; width:150px; padding-top:10px;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <form>
+        <label for="name">Nombre:</label>
+        <input type="text" id="user_name" name="user_name">
+    
+        <label for="mail">Correo electrónico: </label>
+        <input type="email" id="user_mail" name="user_mail"> 
+      
+        <label for="edad">Edad:</label>
+        <input type="text" id="user_age" name="user_age" onchange="cambiarEdad()"><br/>
+        <input type="checkbox" disabled="disabled" name="menor" id="menor"/> <span id="textoMenor">Soy menor de edad </span>
+        <input type="checkbox" disabled="disabled" name="mayor" id="mayor"/> <span id="textoMayor">Soy mayor de edad</span>
+        <hr/>
+   
+        <label for="proofesion">Profesión:</label>
+        <select id="profesion" name="profesion"  onchange="cambiarProfesion(this)">
+            <option value="0">---------------------------------</option>
+            <option value="1">Estudiante</option>
+            <option value="2">Docente</option>
+            <option value="3">Programador</option>
+            <option value="4">Empresario</option>
+        </select>
+
+ 
+        <br><br>
+        <input type="checkbox" name="condiciones" id="condiciones"/> He leído y acepto las condiciones <br/>
+
+        <br>
+        <p id="resultado"></p>
+        <center><input type="button" value="ENVIAR FORMULARIO" onclick="GestionarFormulario()"></center>
+        <br>
+        <center><input type="button" value="Borrar Cookies" onclick="borraCookie()"></center>
+     
+    </form>
+</div>
+</body>
+</html>
