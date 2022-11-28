@@ -23,3 +23,23 @@ function cambiarProfesion(seleccion) {
     }
 }
 
+function GestionarFormulario() {
+    var error = false;
+    
+    // 5 comprobamos si hay errores
+    if ((document.getElementById("user_age").value == "") || (document.getElementById("condiciones").checked == false)) {
+        let resultado = document.getElementById("resultado");
+        resultado.innerHTML += "<p>Ha habido errores:</p>";
+        resultado.innerHTML += "<p style='color:red;'>La edad o las condiciones no se han completado</p>"
+        resultado.style.backgroundColor = "yellow";
+        error = true;
+    }
+    
+    var ventana;
+    var formulario = document.getElementsByTagName("form")[0];
+    if (error == false) {
+        var texto = "<p>El numero de elementos del formulario es " + formulario.length + "</p>";
+        texto += "<h2>Los elementos de texto o de correo electronico son:</h2>"
+        
+    }
+}

@@ -64,37 +64,6 @@ let string_numero = String(numero);
 console.log(string_numero);
 ```
 
-## Arrays
-Definimos un array
-```javascript
-let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-console.log(days[0]); // -> Sun
-console.log(days[2]); // -> Tue
-console.log(days[5]); // -> Fri
-```
-Si queremos saber la posicon de un campo, si nos devuelve -1 es que no encuentra dicho elemento
-```javascript
-console.log(names.indexOf("Mateo")); // -> 2
-```
-El metodo push añade el campo al final de la matriz
-```javascript
-names.push("Amelia");
-```
-El metodo unshift añade el campo al final de la matriz
-```javascript
-names.unshift("Amelia");
-```
-El metodo pop elimina el elemento final de la matriz
-```javascript
-let name = names.pop();
-console.log(names.length); // -> 3
-```
-El metodo shift elimina el prime elemento de la matriz
-```javascript
-let name = names.shift();
-console.log(names.length); // -> 3
-```
-
 ## Operadores
 El operador condicional ternario "?", (es un condicional)
 ```javascript
