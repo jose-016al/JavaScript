@@ -1,4 +1,8 @@
-// document.cookie?alert("Hola "+document.cookie.split("=")[1]):alert("No hay cookies");
+if (!document.cookie) {
+    alert("No hay cookie");
+} else {
+    alert("Hola " + document.cookie.split("=")[1]);
+}
 
     // 3 al introducir la edad se marcará el checkbox adecuado poniendo en verde la etiqueta correspondiente
 function cambiarEdad() {
@@ -37,9 +41,36 @@ function GestionarFormulario() {
     
     var ventana;
     var formulario = document.getElementsByTagName("form")[0];
+        // generamos lo datos ha mostrar
     if (error == false) {
         var texto = "<p>El numero de elementos del formulario es " + formulario.length + "</p>";
-        texto += "<h2>Los elementos de texto o de correo electronico son:</h2>"
-        
+        texto += "<h3>Los elementos de texto o de correo electronico son:</h3>"
+        for (let i = 0; i < formulario.length; i++) {
+            if ((formulario.elements[i].type == "text") || (formulario.elements[i].type == "email")) {
+                texto += "<strong>" + formulario.elements[i].name + "</strong>";
+                texto += " Valor: " + formulario.elements[i].value; 
+                texto += "<br>"
+            }
+        }
+        texto += "<p><strong>Tu profesion es: </strong>" + formulario.profesion.options[formulario.profesion.selectedIndex].text + "</p>";
+
+            // generamos la fecha de hoy
+        var date = new Date();
+        var fecha = "La fecha de hoy es: " + date.getDate() + " del mes " + date.getMonth() + " del año " + date.getFullYear();
+        texto += "<p style='color:red;'>" + fecha + "</p>"
+
+            // mostramos la cookie
+        texto += "La cadena contenida en la cookie es:";
+        document.cookie = "usernmae=" + formulario.user_name.value.split(' ')[0];
+        texto += "<p>" + document.cookie + "</p>";
+
+            // mostramos el resultado en la nueva ventana
+        ventana = window.open("", "formulario", "height=400, width=500");
+        ventana.document.write(texto);
     }
+}
+
+    // 7 eliminar cookie
+function borraCookie() {
+    document.cookie = "username=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
