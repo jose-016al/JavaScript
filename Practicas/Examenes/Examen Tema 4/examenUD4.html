@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen RA4 Noviembre 2022</title>
+    <script src="examenUD4.js"></script>
+    <style>
+        .container{width:400px; background-color: lightcyan; padding:20px;}       
+        label{display:inline-block; width:150px; padding-top:10px;}
+        
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>FORMULARIO DE PERSONAS</h2>
+    <p>Solo la gente que tenga que recuperar el tema 3 tendrá que hacer las cookies, cambiarEdad y cambiarProfesion</p>
+    <form>
+        <label for="name">Nombre: </label>
+        <input type="text" id="user_name1" name="user_name1" value="Blas Intante Perez">
+    
+        <label for="mail">Correo electrónico: </label>
+        <input type="email" id="user_mail1" name="user_mail1" value="blas@gmail.om"> 
+
+        <label for="color">Color Favorito:</label>
+        <input type="text" id="user_color1" name="user_name1" value="pink">
+      
+        <label for="edad">Edad:</label>
+        <input type="text" id="user_age1" name="user_age1" onchange="cambiarEdad()" value="35"><br/>
+        <input type="checkbox" disabled="disabled" name="menor" id="menor"/> <span id="textoMenor">Soy menor de edad </span>
+        <input type="checkbox" disabled="disabled" name="mayor" id="mayor"/> <span id="textoMayor">Soy mayor de edad</span>
+      
+   
+        <label for="profesion1">Profesión:</label>
+        <select id="profesion1" name="profesion"  onchange="cambiarProfesion(this)">
+            <option value="0">---------------------------------</option>
+            <option value="1" selected>Estudiante</option>
+            <option value="2">Docente</option>
+            <option value="3">Programador</option>
+            <option value="4">Empresario</option>
+        </select>
+        <hr/>
+        <label for="name">Nombre: </label>
+        <input type="text" id="user_name2" name="user_name2" value="federico garcía lorca">
+    
+        <label for="mail">Correo electrónico: </label>
+        <input type="email" id="user_mail2" name="user_mail2" value="fede@gmail.com"> 
+
+        <label for="color">Color Favorito:</label>
+        <input type="text" id="user_color2" name="user_name2" value="lightcyan">
+      
+        <label for="edad">Edad:</label>
+        <input type="text" id="user_age2" name="user_age2" value="40"><br/>
+     
+        <br><br>
+        <center>
+            <input type="button" value="MOSTRAR PERSONAS" onclick="mostrarPersonas(true)">
+            <input type="button" value="ELIMINAR PRIMERA ULTIMA" onclick="eliminarPrimeraUltima()">           
+            <input type="button" value="BUSCAR POR NOMBRE" onclick="buscarPersona()">
+            <input type="button" value="MODIFICAR OBJETO" onclick="modificarPersona()">
+            
+        </center>
+        <br>
+        <center><input type="button" value="Borrar Cookies" onclick="borraCookie()"></center>
+     
+    </form>
+</div>
+</body>
+</html>
