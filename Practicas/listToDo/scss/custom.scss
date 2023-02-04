@@ -1,0 +1,197 @@
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+    // Variables
+$colorFondo: lightseagreen;
+$colorTitulos: darkslategrey;
+$colorContenedores: white;
+$margin-top-container: 30px;
+$margin-bottom-container: 30px;
+$border-radius: 30px;
+
+// ----------Personalizacion basica del DOM----------
+
+body {
+    background-color: $colorFondo;
+}
+
+h2 {
+    color: $colorTitulos;
+}
+
+// ----------Personalizacion del login----------
+
+.login {
+    background-color: $colorContenedores;
+    margin-top: $margin-top-container;
+    margin-bottom: $margin-bottom-container;
+    border-radius: $border-radius;
+    display: block;
+}
+
+#login_boton {
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    background-color: teal;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#login_boton:hover {
+    cursor: pointer;
+    background-color: darkcyan;
+}
+
+    // ----------Cerrar sesion----------
+#logout {
+    display: flex;
+    justify-content: end;
+}
+
+#cerrar_sesion {
+    border: none;
+    background-color: #E77373;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#cerrar_sesion:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+// ----------Personalizacion del gestor de tareas----------
+
+.listaTareas {
+    background-color: $colorContenedores;
+    margin-top: $margin-top-container;
+    margin-bottom: $margin-bottom-container;
+    border-radius: $border-radius;
+    padding: 30px;
+    display: none;
+}
+
+#descripcion {
+    width: 82%;
+}
+
+#container_new_tarea form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#container_busqueda form {
+    display: flex;
+}
+
+#container_tareas ul {
+    padding: 0;
+}
+
+#container_tareas li {
+    list-style: none;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: flex;
+}
+
+#container_tareas li p {
+    margin: 0;
+    padding: 15px;
+    width: 100%;
+}
+
+#container_tareas li p:hover, #container_tareas li p.terminada {
+    background-color: #E77373;
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+#container_busqueda {
+    visibility: hidden;
+    opacity: 0%;
+    transform: translateY(-100%);
+    transition: 1s
+}
+
+#boton_busqueda {
+    padding: 5px;
+    border: none;
+    background-color: teal;
+}
+
+#boton_add {
+    margin-right: 3px;
+    padding: 8px;
+    border: none;
+    background-color: teal;
+}
+
+#boton_add:hover, #boton_busqueda:hover {
+    cursor: pointer;
+    background-color: darkcyan;
+}
+
+#boton_delete {
+    border: none;
+    background-color: #E77373;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-size: 20px;
+}
+
+#boton_delete:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+#sin_tareas {
+    color: darkslategrey;
+}
+
+#sin_resultados {
+    color: darkslategrey;
+    display: none;
+}
+
+#borrar_lista {
+    border: none;
+    background-color: #E77373;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+}
+
+#borrar_lista:hover {
+    cursor: pointer;
+    background-color: red;
+}
+
+    // ----------Personalizacion de mensajes de error----------
+.error{
+    overflow: hidden;
+    text-align: left;
+    color: red;
+    padding: 0 16px;
+    margin: 0;
+    height: 0;
+    transition: 0.3s;
+}
+
+.error.visible {
+    height: 30px;
+}

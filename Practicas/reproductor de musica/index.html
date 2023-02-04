@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de audio</title>
+    <script src="ejercicio2.js" defer></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/600.css">
+</head>
+<body>
+    <div id="container">
+        <audio id="player"></audio>
+        <div>
+            <form action="ejercicio2.html" id="formCancion">
+                <p>Seleccionar archivo</p>
+                <input type="file" id="cancion">
+            </form>
+        </div>
+        <div id="imagenAlbum"><img src="img/album.jpg" alt="album"></div>
+        <div id="controles">
+            <h2 id="name"></h1>
+            <p id="time"></p>
+            <p id="duracion"></p>
+            <p id="mensajeRepoduccion"></p>
+            <button id="button"><img id="imagenBoton" src="img/iconPlay.png" alt="reproduce"></button>
+            <div id="barraProgreso"></div>
+            <div id="barraProgresoVacia"></div>
+        </div>
+        <div id="controlesImagen"></div>
+    </div>
+</body>
+</html>

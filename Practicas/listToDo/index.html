@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gestor de tareas</title>
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/listToDo.js" defer></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div id="logout" class="mt-2 mr-2">
+            <button id="cerrar_sesion" class="btn">Cerrar sesion</button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="login col-12 col-md-5">
+                <h2 class="text-center pt-5 mb-5">Bienvenido</h2>
+                <form>
+                    <div class="mb-4">
+                        <label class="form-label">Nombre de usuario</label>
+                        <input id="username" type="text" placeholder="Nombre de usuario" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Contraseña</label>
+                        <input id="password" type="password" placeholder="Contraseña" class="form-control required">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Correo electronico</label>
+                        <input id="email" type="text" placeholder="Correo electronico" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">DNI</label>
+                        <input id="dni" type="dni" placeholder="DNI" class="form-control" required>
+                    </div>
+                    <div class="d-grid my-3">
+                        <button id="login_boton" class="btn">Login</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="listaTareas col-12 col-md-5">
+                <h2 class="text-center pt-5 ">Lista de Tareas</h2>
+                <div id="container_busqueda" class="mb-3">
+                    <form action="index.html">
+                        <input id="busqueda" type="text" class="form-control" placeholder="¿Que quieres buscar?">
+                    </form>
+                </div>
+                <div id="container_new_tarea">
+                    <form action="index.html">
+                        <input id="descripcion" type="text" class="form-control" placeholder="Agregar tarea...">
+                        <button class="btn" id="boton_add"><img src="./iconos/add.png" alt="Añadir"></button>
+                        <button class="btn" id="boton_busqueda"><img src="./iconos/search.png" alt="Buscar"></button>
+                    </form>
+                </div>
+                <div id="container_tareas">
+                    <ul>
+        
+                    </ul>
+                </div>
+                <div id="sin_tareas">
+                    <p>No tienes tareas pendientes.</p>
+                </div>
+                <div id="sin_resultados">
+                    <p>No se han encontrador resultados</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
