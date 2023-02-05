@@ -50,10 +50,19 @@ body {
 }
 
     /* Estilos para la imagen del album */
-#container > #imagenAlbum img {
+#container > #imagenAlbum img:first-child {
     max-width: 70%;
     display: block;
     margin: 0 auto;
+}
+#container > #imagenAlbum {
+    position: relative;
+}
+#container > #imagenAlbum img:nth-child(2) {
+    position: absolute;
+    max-width: 52%;
+    top: 31px;
+    left: 24%;
 }
 
     /* Estilos para los controles */
